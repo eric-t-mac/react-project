@@ -1,0 +1,50 @@
+.re-layout {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+
+    .re-sider {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #000c17;
+
+        &>div {
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            border-bottom: 1px solid #aaa;
+
+            &>a {
+                text-decoration: none;
+                display: block;
+                width: 100%;
+                height: 100%;
+                color: white;
+            }
+            &>a.on {
+                background-color: orange;
+            }
+        }
+    }
+
+    .re-header {
+        height: 60px;
+        width: 100%;
+        padding: 0 50px;
+    }
+
+    .re-main {
+        position: absolute;
+        top: 60px;
+        bottom: 0;
+        left: 150px;
+        right: 0;
+        background-color: #eee;
+        padding: 0 50px;
+    }
+}
