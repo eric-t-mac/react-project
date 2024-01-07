@@ -2,7 +2,7 @@ import React from "react";
 
 import routes from "../../views";
 import { Route, Routes, Navigate } from "react-router-dom";
-export default (props) => {
+const Main = (props) => {
   // 生成路由匹配规则，当url和Route.path匹配成功时，显示当前配对成功的Route.component
   // v6版本前，凡是被 Route 组件直接包裹的React组件中，其props上都有路由相关的API
   // v6版本前，Switch => Route
@@ -78,3 +78,6 @@ export default (props) => {
     </div>
   );
 };
+
+export default Main
+

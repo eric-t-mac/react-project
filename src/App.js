@@ -1,17 +1,21 @@
-import React from 'react';
-import { HashRouter } from 'react-router-dom';
-// import { Layout } from "@/components";
+import React from "react";
+import { HashRouter } from "react-router-dom";
+import { Layout } from "@/components";
 
-import './assects/common.scss'
+// react-redux
+import { Provider } from "react-redux";
+import store from "@/store";
+
+import "@/assets/css/common.scss";
 
 function App() {
   return (
     <HashRouter>
-      <div className="App">
-        <h1>
-          react re
-        </h1>
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          <Layout />
+        </div>
+      </Provider>
     </HashRouter>
   );
 }

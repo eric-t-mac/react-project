@@ -1,12 +1,12 @@
 import React from "react";
-import { Layout, Flex } from 'antd';
+import { Layout } from 'antd';
 
 import ReSider from "./Sider";
 import ReHeader from "./Header";
 import ReMain from "./Main";
 import './style.scss';
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Sider, Content } = Layout;
 
 const headerStyle = {
     textAlign: 'center',
@@ -16,13 +16,7 @@ const headerStyle = {
     lineHeight: '64px',
     backgroundColor: '#4096ff',
 };
-const contentStyle = {
-    textAlign: 'center',
-    minHeight: 120,
-    lineHeight: '120px',
-    color: '#fff',
-    backgroundColor: '#0958d9',
-};
+
 const siderStyle = {
     textAlign: 'center',
     lineHeight: '120px',
@@ -35,7 +29,8 @@ const layoutStyle = {
     overflow: 'hidden',
     height: '100%'
 };
-export default props => {
+
+const Layout1 = props => {
     return (
         <div className="re-layout">
             <Layout style={layoutStyle}>
@@ -55,3 +50,5 @@ export default props => {
         </div>
     )
 }
+
+export default Layout1

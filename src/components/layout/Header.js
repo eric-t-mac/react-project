@@ -4,10 +4,14 @@ import React from "react";
 // 作用是：让那些没有被Route直接包裹的React组件拥有路由API
 
 // 一、使用Hooks写法，来解决React组件中没有路由API的问题
-import { useNavigate, useLocation, useParams } from 'react-router-dom';
-export default props => {
+import { 
+    // useNavigate, 
+    useLocation, 
+    useParams 
+} from 'react-router-dom';
+const Header = props => {
     const location = useLocation();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const params = useParams();
     console.log('--- header location', location);
     console.log('--- header params', params);
@@ -17,6 +21,8 @@ export default props => {
         </div>
     )
 }
+
+export default Header
 
 // 二、使用withRoute高阶组件来解决React无状态组件中没有路由API的问题
 // import { withRouter } from 'react-router-dom';

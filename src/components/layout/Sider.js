@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Button, Menu } from 'antd';
+import { Menu } from 'antd';
 
 import { NavLink } from "react-router-dom";
 import routes from "../../views";
@@ -8,7 +8,7 @@ const { SubMenu } = Menu;
 
 console.log('routes', routes);
 
-export default props => {
+const Sider = props => {
     // 用于生成菜单
     const createNavLink = () => {
         return routes.map(ele => (
@@ -41,3 +41,5 @@ export default props => {
         </div>
     )
 }  
+
+export default Sider
