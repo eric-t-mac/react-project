@@ -50,7 +50,7 @@
     "react-redux": "^9.0.4",
     "react-refresh": "^0.11.0",
     "react-router-dom": "^6.21.1",
-    "redux": "^5.0.1",
+    "redux": "4.0.5",
     "redux-thunk": "^latest",
     "resolve": "^1.20.0",
     "resolve-url-loader": "^4.0.0",

@@ -1,48 +1,33 @@
-// import {
-//     createStore,
-//     combineReducers,
-//     applyMiddleware
-// } from 'redux';
-// import { thunk } from 'redux-thunk';
-// import {
-//     configureStore
-// } from '@reduxjs/toolkit';
+import {
+    // createStore,
+    combineReducers,
+    // applyMiddleware
+} from 'redux';
+// import thunk from 'redux-thunk';
+import {
+    configureStore
+} from '@reduxjs/toolkit';
 
 
-// // Reducer
-// // 是函数，并且是纯函数
-// // 它是redux的store中发挥核心作用的工具，是真正处理数据的地方
-// // 必须strore,必须要定义reducer
-// import study from './module/studyReducer'
-// import music from './module/musicReducer';
-
-// const rootReducer = combineReducers({
-//     study,
-//     music
-// })
-
-
-// // const store = configureStore({
-// //     reducer: rootReducer,
-// // });
-
-// // 旧版写法
-// const store = createStore(rootReducer, applyMiddleware(await thunk()))
-
-// export default store;
-
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import study from './module/studyReducer';
+// Reducer
+// 是函数，并且是纯函数
+// 它是redux的store中发挥核心作用的工具，是真正处理数据的地方
+// 必须strore,必须要定义reducer
+import study from './module/studyReducer'
 import music from './module/musicReducer';
 
 const rootReducer = combineReducers({
     study,
     music
+})
+
+
+const store = configureStore({
+    reducer: rootReducer,
 });
 
-// 使用createStore并应用redux-thunk中间件
-const store = createStore(rootReducer, applyMiddleware(thunk));
+// // 旧版写法
+// const store = createStore(rootReducer, applyMiddleware(await thunk()))
 
 export default store;
 
