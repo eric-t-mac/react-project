@@ -13,8 +13,7 @@ const Header = props => {
     const location = useLocation();
     // const navigate = useNavigate();
     const params = useParams();
-    console.log('--- header location', location);
-    console.log('--- header params', params);
+    console.log('--- header location params', location, params);
     return (
         <div className="re-header">
             Header

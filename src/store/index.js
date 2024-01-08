@@ -1,47 +1,48 @@
-import {
-    createStore
-} from 'redux';
-import {
-    configureStore
-} from '@reduxjs/toolkit';
+// import {
+//     createStore,
+//     combineReducers,
+//     applyMiddleware
+// } from 'redux';
+// import { thunk } from 'redux-thunk';
+// import {
+//     configureStore
+// } from '@reduxjs/toolkit';
 
-// Reducer
-// 是函数，并且是纯函数
-// 它是redux的store中发挥核心作用的工具，是真正处理数据的地方
-// 必须strore,必须要定义reducer
 
-let initState = {
-    msg: 'this is the redux',
-    foo: {
-        count: 0
-    }
-}
+// // Reducer
+// // 是函数，并且是纯函数
+// // 它是redux的store中发挥核心作用的工具，是真正处理数据的地方
+// // 必须strore,必须要定义reducer
+// import study from './module/studyReducer'
+// import music from './module/musicReducer';
 
-function reducer(state=initState, action) {
-    // 第一步，接收store给的信号（干什么、数据）
-    // 第二部，数据处理
-    // 第三部，把处理完的数据，返回给store
-    console.log('来自于视图组件的payload', action);
-    // let newState = {...state}
-    // leet newState = Object.assign()
-    // 深复制
-    let newState = JSON.parse(JSON.stringify(state))
-    switch(action.type) {
-        case 'change':
-            newState.msg = action.payload;
-            break;
-        case 'add': 
-            newState.foo.count += action.payload;
-            break;
-        default:
-            return state
-    }
-    return newState
-}
+// const rootReducer = combineReducers({
+//     study,
+//     music
+// })
 
-const store = configureStore({
-    reducer: reducer
+
+// // const store = configureStore({
+// //     reducer: rootReducer,
+// // });
+
+// // 旧版写法
+// const store = createStore(rootReducer, applyMiddleware(await thunk()))
+
+// export default store;
+
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import study from './module/studyReducer';
+import music from './module/musicReducer';
+
+const rootReducer = combineReducers({
+    study,
+    music
 });
+
+// 使用createStore并应用redux-thunk中间件
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export default store;
 
