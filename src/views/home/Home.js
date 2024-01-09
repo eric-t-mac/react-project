@@ -57,9 +57,12 @@ export default (props) => {
   };
 
   useEffect(() => {
-    dispatch(action.musicListAction({}))
+    const fetchData = async() => {
+      await dispatch(action.musicListAction({}))
+    }
+    fetchData()
     return undefined
-  }, [])
+  }, [dispatch])
 
   return (
     <div>
