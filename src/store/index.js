@@ -32,9 +32,9 @@
 // export default store;
 
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
 import study from './module/studyReducer';
 import music from './module/musicReducer';
+import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
     study,
@@ -42,9 +42,10 @@ const rootReducer = combineReducers({
 });
 
 // 使用createStore并应用redux-thunk中间件
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware([thunk]));
 
 export default store;
+
 
 // 如何使用redux？
 // 一、在src/store/index.js中定义store，伪代码如下：
