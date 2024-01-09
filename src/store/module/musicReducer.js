@@ -1,18 +1,17 @@
+import type from '../actionType'
 
 const initState = {
-    list: [
-        {id: 1, name: '张杰'},
-        {id: 2, name: 'zhou'},
-        {id: 3, name: 'c'},
-        {id: 4, name: 'a'}
-    ]
+    list: []
 }
 
-export default function musicReducer(state=initState, action) {
-    switch(1) {
-        case '':
+export default function musicReducer(state = initState, action) {
+    let newState = JSON.parse(JSON.stringify(state));
+    switch (action.type) {
+        case type.AJAX_MUSIC_LIST:
+            newState.list = action.payload
             break;
-        default: 
+        default:
+            return state
     }
-    return state;
+    return newState;
 }

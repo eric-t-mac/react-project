@@ -58,11 +58,21 @@ export default (props) => {
 
   useEffect(() => {
     const fetchData = async() => {
-      await dispatch(action.musicListAction({}))
+      // await dispatch(action.musicListAction({}))
+      const str = `_=1704294660122&cv=4747474&ct=24&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=yqq.json&needNewCode=1&uin=596508302&g_tk_new_20200303=291690059&g_tk=291690059&hostUin=0&is_xml=0&key=%E5%91%A8%E6%9D%B0%E4%BC%A6`
+      const params = {}
+      str.split('&').forEach(ele => {
+          let arr = ele.split('=');
+          params[arr[0]] = arr[1];
+      })
+      // 正编码 encodeURL('张杰')
+      // 反编码 
+      params.key = decodeURI(params.key);
+      await action.musicListAction(params, dispatch)
     }
     fetchData()
     return undefined
-  }, [dispatch])
+  }, [dispatch]) 
 
   return (
     <div>

@@ -28,6 +28,7 @@ function addFooCountAction(payload) {
 // function musicListAction(params) {
 //     return function (dispatch) {
 //         fetchQqMusic(params).then(res => {
+            // 这才是真正把后端数据，发送到store中
 //             dispatch({
 //                 type: type.AJAX_MUSIC_LIST,
 //                 payload: []
@@ -35,13 +36,18 @@ function addFooCountAction(payload) {
 //         })
 //     }
 // }
+// redux-thunk默认提供了dispatch  redux-saga
+// dispatch(function(dispatch({type: '', payload: ''})))
+    
+
+
 // async/await写法
-async function musicListAction(params) {
+async function musicListAction(params, dispatch) {
     const res = await fetchQqMusic(params);
-    return {
+    dispatch({
         type: type.AJAX_MUSIC_LIST,
-        payload: res.data
-    }
+        payload: res.song.itemlist
+    }) 
 }
 
 
@@ -49,6 +55,6 @@ async function musicListAction(params) {
 export default {
     changeMsgAction,
     addFooCountAction,
-    
+
     musicListAction
 }
